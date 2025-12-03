@@ -1,94 +1,73 @@
-<?php
-// Basic server info
-$phpVersion = phpversion();
-$serverSoftware = $_SERVER['SERVER_SOFTWARE'] ?? 'Unknown';
-$loadedExtensions = get_loaded_extensions();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Server Test | PHP Status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Page</title>
 
     <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         body {
-            background: linear-gradient(135deg, #2b5876, #4e4376);
-            min-height: 100vh;
-            color: white;
+            background: linear-gradient(135deg, #007bff, #6610f2);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Poppins", sans-serif;
         }
-        .card {
+
+        .box {
+            background: white;
+            padding: 50px 40px;
             border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+            width: 90%;
+            max-width: 600px;
         }
-        .header-title {
-            font-size: 2.3rem;
-            font-weight: 700;
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-weight: 600;
+            color: #333;
+        }
+
+        p {
+            margin: 0;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            font-size: 15px;
+            color: #777;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
+
 <body>
+    <div class="box">
+        <h1>Welcome to our Testing Page</h1>
+        
+        <p>Digital Division | Chief Secretariat</p>
+        <p>North Western Province</p>
 
-<div class="container py-5">
-    <div class="text-center mb-5">
-        <h1 class="header-title">🚀 PHP Server Test Page</h1>
-        <p class="lead">Check your server configuration & PHP status</p>
+        <div class="footer-text">Responsive • Modern • Animated</div>
     </div>
 
-    <div class="row justify-content-center">
-
-        <!-- PHP Version -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow p-4 text-dark">
-                <h4>🧩 PHP Version</h4>
-                <hr>
-                <p class="fw-bold text-primary" style="font-size: 1.2rem;">
-                    <?php echo $phpVersion; ?>
-                </p>
-            </div>
-        </div>
-
-        <!-- Server Software -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow p-4 text-dark">
-                <h4>🖥 Server Software</h4>
-                <hr>
-                <p class="fw-bold text-success" style="font-size: 1.2rem;">
-                    <?php echo $serverSoftware; ?>
-                </p>
-            </div>
-        </div>
-
-        <!-- Loaded extensions -->
-        <div class="col-md-12 mb-4">
-            <div class="card shadow p-4 text-dark">
-                <h4>📦 Loaded PHP Extensions</h4>
-                <hr>
-                <div style="max-height: 200px; overflow-y: auto;">
-                    <ul>
-                        <?php foreach ($loadedExtensions as $ext): ?>
-                            <li><?php echo $ext; ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- phpinfo button -->
-        <div class="col-md-12 text-center mt-4">
-            <a href="?info=1" class="btn btn-light btn-lg px-4 shadow">Show Full phpinfo()</a>
-        </div>
-
-        <?php if (isset($_GET['info'])): ?>
-            <div class="col-md-12 mt-5 bg-white p-4 rounded shadow text-dark">
-                <?php phpinfo(); ?>
-            </div>
-        <?php endif; ?>
-
-    </div>
-</div>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
